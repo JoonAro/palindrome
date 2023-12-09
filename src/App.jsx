@@ -32,7 +32,7 @@ function App() {
       setIsTrue(true);
     }
     else {
-      setNotPalindrome(possiblePalindrome2);
+      setNotPalindrome(originalInput);
       setIsFalse(true);
     }
   }
