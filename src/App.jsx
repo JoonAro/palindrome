@@ -1,6 +1,7 @@
 import './App.css'
 import { useState } from 'react';
 function App() {
+  let originalInput;
   let possiblePalindrome;
   const [userInput, setUserInput] = useState("");
   const [palindrome, setPalindrome] = useState("");
@@ -15,21 +16,19 @@ function App() {
     setIsFalse(false);
   }
   const InputHandler = () => {
-    possiblePalindrome = userInput.toLowerCase().replace(/[\s,!@#$%^&*-]/g, '');
+    originalInput = userInput;
+    possiblePalindrome = userInput.toLowerCase().replace(/[\s,!@#$%^&*-.?]/g, '');
     setUserInput("");
     palindromeChecker()
   }
 
   const palindromeChecker = () => {
-    const onlyContainsNumbers = (int) => /^\w+$/.test(int);
     if (possiblePalindrome === "") return console.log("no input");
-    console.log(onlyContainsNumbers(possiblePalindrome));
-    console.log(possiblePalindrome);
     const possiblePalindrome2 = possiblePalindrome;
     const reversedInput = [...possiblePalindrome2].reverse().join("");
 
     if (possiblePalindrome2 === reversedInput) {
-      setPalindrome(reversedInput);
+      setPalindrome(originalInput);
       setIsTrue(true);
     }
     else {
