@@ -24,10 +24,9 @@ function App() {
 
   const palindromeChecker = () => {
     if (possiblePalindrome === "") return console.log("no input");
-    const possiblePalindrome2 = possiblePalindrome;
-    const reversedInput = [...possiblePalindrome2].reverse().join("");
+    const reversedInput = [...possiblePalindrome].reverse().join("");
 
-    if (possiblePalindrome2 === reversedInput) {
+    if (possiblePalindrome === reversedInput) {
       setPalindrome(originalInput);
       setIsTrue(true);
     }
